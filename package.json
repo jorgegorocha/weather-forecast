@@ -1,0 +1,37 @@
+{
+  "name": "weatherforecast",
+  "version": "1.0.0",
+  "description": "weatherforecast",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jorge Rocha",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-angular-protractor": "^0.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-html-replace": "^1.6.0",
+    "gulp-jasmine": "^2.3.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-protractor": "^2.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "gulp-webserver": "^0.9.1",
+    "jasmine-core": "^2.4.1",
+    "jasmine-spec-reporter": "^2.5.0",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "karma": "^0.13.22",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-spec-reporter": "0.0.26",
+    "map-stream": "0.0.6",
+    "phantomjs-prebuilt": "^2.1.7",
+    "protractor": "^3.3.0",
+    "selenium-server-standalone-jar": "^2.53.0"
+  }
+}

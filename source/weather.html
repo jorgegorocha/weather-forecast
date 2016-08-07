@@ -1,0 +1,58 @@
+<ng-include src="'searchbar.html'"></ng-include>
+<div ng-if="isLoading === true" class="loading">
+    <span class="glyphicon glyphicon-refresh spinning"></span>
+</div>
+<div ng-if="!weatherResults && isLoading === false" class="errors">
+    <div class="alert alert-danger " role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        <span>{{error}}</span>
+    </div>
+</div>
+<div ng-if="weatherResults && isLoading === false">
+    <div class="row">
+        <div class="col-md-6 weather-results">
+            <p class="city">{{weatherResults.channel.location.city}}, {{weatherResults.channel.location.region}}</p>
+            <p class="country">{{weatherResults.channel.location.country}}</p>
+            <p class="date">{{weatherResults.channel.item.condition.date}}</p>
+            <p class="description">
+                <img ng-src="http://l.yimg.com/a/i/us/we/52/{{weatherResults.channel.item.condition.code}}.gif" alt={{weatherResults.channel.item.condition.text}}></img>
+                {{weatherResults.channel.item.condition.text}}
+            </p>
+            <p class="temperature">{{weatherResults.channel.item.condition.temp}}º {{weatherResults.channel.units.temperature}}</p>
+        </div>
+        <div class="col-md-6 details">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong>Details</strong></div>
+                <div class="panel-body ">
+                    <p><strong>Min:</strong> {{weatherResults.channel.item.forecast[0].low}}º {{weatherResults.channel.units.temperature}}</p>
+                    <p><strong>Max:</strong> {{weatherResults.channel.item.forecast[0].high}}º {{weatherResults.channel.units.temperature}}</p>
+                    <p><strong>Sunrise:</strong> <span class="text-uppercase">{{weatherResults.channel.astronomy.sunrise}}</span></p>
+                    <p><strong>Sunset:</strong> <span class="text-uppercase">{{weatherResults.channel.astronomy.sunset}}</span></p>
+                    <p><strong>Humidity:</strong> {{weatherResults.channel.atmosphere.humidity}}%</p>
+                    <p><strong>Wind:</strong> {{weatherResults.channel.wind.speed}} {{weatherResults.channel.units.speed}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 forecast">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong>Forecast for the next 5 days</strong></div>
+                <div class="panel-body text-center">
+                    <div class="col-md-2" ng-repeat="forecast in weatherResults.channel.item.forecast | slice:0:6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" ng-class="{'today':$first}">{{forecast.day}}, {{forecast.date}}</div>
+                            <div class="panel-body text-center">
+                                <img ng-src="http://l.yimg.com/a/i/us/we/52/{{forecast.code}}.gif" alt={{forecast.text}}></img>
+                                <p><strong>{{forecast.text}}</strong></p>
+                                <p><strong>Min:</strong> {{forecast.low}}º {{weatherResults.channel.units.temperature}}</p>
+                                <p><strong>Max:</strong> {{forecast.high}}º {{weatherResults.channel.units.temperature}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

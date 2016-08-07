@@ -1,0 +1,16 @@
+The app is live for viewing purposes on http://jorgerocha.cloud4you.pt/#/search
+
+If the desire is to build and run the app locally the following steps should be taken:
+
+-Install npm if it's not already installed;
+-Unzip WeatherForecast.zip;
+-Run console as administrator on the folder root;
+-Run the command "npm install"
+-Install gulp globally if it's not already installed with the command "npm install -g gulp"
+-Run the command "gulp"
+
+This will build, test and run the application. 
+You can now access http://localhost:8000/#/search to see the application running the source files and 
+http://localhost:8080/#/search to see the application running the minified and deployed files.
+
+You can read more about this in "Brief notes about implementation.txt".

@@ -1,0 +1,56 @@
+This file contains technical information about the decisions made and the implementation of the application.
+It's organized in small sections with a few comments about each one.
+
+-app.js file:
+I decided to use ngRoute to show a small demonstration of routing, one of the routes with parameters;
+This implementation allows users to copy a URL and send it to another user and both of them will be looking at the same page with the same information.
+
+-search.html and MainController.js:
+These files provide a form to the user where he can search for the weather in a given location;
+The form has client side validations to prevent invalid and malicious inputs;
+The text input has a third party autocomplete directive (https://gist.github.com/VictorBjelkholm/6687484) that autocompletes the location with google maps data.
+I made some minor changes on this directive to exclude streets from the suggestions and only get citys.
+
+-searchbar.html:
+This component has the same functionalities and similar html so it shares the MainController with search.html;
+I kept this as a separate file cause on a bigger application it would have been a reusable component;
+
+-weather.html and WeatherController:
+This component is responsible to call the yahooWeatherApi service with the URL parameter received;
+It also does validations before calling the service because an user can change the URL directly;
+The page is blocked with a loading overlay while http requests are being made;
+The weather results are shown in case of a success response from yahoo or the appropriate error message is displayed.
+
+-yahooWeatherApi.js:
+It's the service responsible for building the correct HTTP requests and execute them, returning the promise to the controller;
+Performance wise it only allows one request at the same time to the yahoo services;
+
+-slice.js:
+Example of custom filter;
+It's used in the weather.html to limit the results shown in the forecast section;
+
+-CSS:
+Besides the custom styles written by me, the bootstrap framework is also used;
+
+-Karma:
+Used for the unit testing;
+Developed tests to the routes, the slice filter and the yahooWeatherApi service;
+
+-Protractor:
+Used for E2E testing;
+Developed automatic tests to the two pages;
+
+-Gulp:
+Used to simulate a deploy process. This process takes several steps:
+	-Start a webserver available at localhost:8000 running the files from the source folder (required to run the E2E tests);
+	-Check for errors in the JS files developed by me with jshint;
+	-Run the karma tests;
+	-Run the protractor tests;
+	-Concat the JS files into a single file, minify and uglify them;
+	-Concat and minify the CSS files;
+	-Copy the files from the folder /source to the folder /public excluding the /tests folder;
+	-Change the references in the index.html file to the minified versions of the JS and CSS;
+	-Start a webserver available at localhost:8080 running the files from the public folder and open to browser with the application URL;
+
+If there are any errors in the JS or if any of the tests fails the process is canceled and the deploy to /public is not done.
+

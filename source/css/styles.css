@@ -1,0 +1,148 @@
+body{
+    background-color: #F1F1F2 !important;
+}
+
+.vcenter{
+    position: absolute !important;
+    top: 40%;
+}
+
+h1{
+    color: #1995AD !important;
+    text-shadow: 1px 1px 1px rgba(161, 214, 226, 0.54);
+}
+
+input, button, .panel, .panel-heading {
+    border-radius: 0 !important;
+}
+
+.btn {
+    background-color: #1995AD !important;
+}
+
+.details{
+    color: #333;
+    margin-top: 85px;
+}
+
+.weather-results{
+    color: #333;
+    text-shadow: 1px 1px 1px rgba(161, 214, 226, 0.54);
+    font-weight: 400;
+    margin-top: 70px;
+}
+
+.weather-results .city{
+    padding-top: 15px;
+    margin-bottom: 0;
+    font-size: 2em;
+}
+
+.weather-results .country{
+    font-size: 1.5em;
+}
+
+.weather-results .date{
+    font-style: italic;
+    font-size: 1em;
+}
+
+.weather-results .temperature{
+    font-size: 4.5em;
+}
+
+.weather-results .description{
+    margin-bottom: 0;
+    font-size: 1.5em;
+}
+
+.forecast{
+    color: #333;
+    font-weight: 300;
+    text-shadow: 1px 1px 1px rgba(161, 214, 226, 0.54);
+}
+
+.forecast .panel .panel .panel-body{
+    height: 185px;
+}
+
+.searchbar{
+    position:fixed;
+    top:0;
+    height: 75px;
+    width: 100%;
+    z-index: 1;
+    background-color: #FFF;
+    padding: 15px;
+    border-bottom: 1px solid #BCBABE;
+    -webkit-box-shadow: 0 8px 6px -3px #BCBABE;
+    -moz-box-shadow: 0 8px 6px -3px #BCBABE;
+    box-shadow: 0 8px 6px -3px #BCBABE;
+}
+
+.errors{
+    margin-top: 90px;
+}
+
+.form-input{
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.help-block{
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.panel-default > .panel-heading {
+    color: #F1F1F2 !important;
+    background-color: #1995AD !important;
+}
+
+.panel-default > .panel-heading.today {
+    background-color: #F29900 !important;
+}
+
+.loading{
+    position:absolute;
+    left:0;
+    top:0;
+    background: rgba(255,255,255,.5);
+    width:100%;
+    height:100%;
+    z-index: 2;
+}
+
+.loading .glyphicon{
+    font-size: 7em;
+    top: 40%;
+    left: 45%;
+}
+
+.glyphicon.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
